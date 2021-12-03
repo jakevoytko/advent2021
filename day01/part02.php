@@ -1,4 +1,4 @@
-<?php
+<?php  declare(strict_types=1);
 
 // Open the input file.
 $file_input = fopen('inputA.txt', 'r');
@@ -16,9 +16,7 @@ $count = 0;
 // Read the file line-by-line.
 while (!feof($file_input)) {
   $line = fgets($file_input);
-
-  // Don't process blank lines, such as final blank lines.
-  if (!strlen($line)) {
+  if (!$line) {
     continue;
   }
 
@@ -28,7 +26,7 @@ while (!feof($file_input)) {
   }
 
   // The comparison is only valid when the pipeline is fully saturated.
-  if ($third_from_last !== NULL) {  
+  if ($third_from_last !== NULL) {
     // Since the sliding average has 2 other numbers in common, the
     // sliding average will increase when the current number is greater
     // than the third-from-last.

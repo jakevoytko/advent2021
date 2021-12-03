@@ -1,4 +1,4 @@
-<?php
+<?php  declare(strict_types=1);
 
 // Open the input file.
 $file_input = fopen('inputA.txt', 'r');
@@ -12,9 +12,7 @@ $depth = 0;
 // Read the file line-by-line.
 while (!feof($file_input)) {
   $line = fgets($file_input);
-
-  // Don't process blank lines, such as final blank lines.
-  if (!strlen($line)) {
+  if (!$line) {
     continue;
   }
 
@@ -40,7 +38,7 @@ while (!feof($file_input)) {
     case "up":
       $depth -= $amount;
       break;
-    
+
     default:
       throw new Exception("Unrecognized direction {$direction}");
   }
