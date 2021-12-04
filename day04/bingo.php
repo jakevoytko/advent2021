@@ -73,27 +73,7 @@ class BingoCard {
         return true;
       }  
     }
-
-    // Test diagonals for BINGO.
-    $found = true;
-    for ($i = 0; $i < 5; $i++) {
-      if (!$this->marks[$i][$i]) {
-        $found = false;
-        break;
-      }
-    }
-    if ($found) {
-      return true;
-    }
-    $found = true;
-    for ($i = 0; $i < 5; $i++) {
-      if (!$this->marks[4-$i][$i]) {
-        $found = false;
-        break;
-      }
-    }
-
-    return $found;
+    return false;
   }
 
   function sumOfRemainingScores(): int {
